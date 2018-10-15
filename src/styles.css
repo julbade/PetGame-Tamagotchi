@@ -1,0 +1,17 @@
+body{
+    background-color: blanchedalmond;
+    color: white;
+    text-align: center;
+  }
+  
+  .jumbotron {
+      background-color: #4d4488;
+      margin-top: 6px;
+      padding: 2rem 2rem;
+    }
+  
+    #death{
+      display: none;
+      text-align: center;
+  
+    }
