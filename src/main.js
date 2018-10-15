@@ -16,7 +16,7 @@ $(".progress-bar").text(pet.foodLevel);
     $("#death").show();
     $("#game").hide();
   }
-},1000);
+},100);
 })
 
   $(document).ready(function() {

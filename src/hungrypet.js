@@ -8,7 +8,7 @@ export let pet = {
         clearInterval(hungerInterval);
         return "You got eaten!";
       }
-    }, 40);
+    }, 300);
   },
   dyingPet: function() {
     if (this.foodLevel > 0) {
@@ -29,5 +29,5 @@ export let pet = {
 pet.play = pet.interact(5);
 pet.sleep = pet.interact(10)
 pet.feed = pet.interact(15);
-pet.hurt = pet.interact(-10);
+pet.hurt = pet.interact(-75);
 pet.walk =  pet.interact(Math.floor((Math.random() * 10) + 5));
