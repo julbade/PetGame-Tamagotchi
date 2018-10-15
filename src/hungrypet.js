@@ -1,5 +1,5 @@
 export let pet = {
-  foodLevel: 10,
+  foodLevel: 50,
 
   setHunger: function() {
     const hungerInterval = setInterval(() => {
@@ -8,7 +8,7 @@ export let pet = {
         clearInterval(hungerInterval);
         return "You got eaten!";
       }
-    }, 1000);
+    }, 40);
   },
   dyingPet: function() {
     if (this.foodLevel > 0) {
