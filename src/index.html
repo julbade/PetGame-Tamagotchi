@@ -14,54 +14,60 @@
       </center>
     </div>
     <div id="game">
-        <hr>
-        <div class="container">
-          <div class="col-6">
-            <hr>
+      <h2>Keep Your Pet Alive!</h2>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
             <button id="play" type="button" class="btn btn-primary">Play</button>
-            <hr>
             <button id="sleep" type="button" class="btn btn-secondary">Sleep</button>
-            <hr>
-            <button id="feed" type="button" class="btn btn-success">Feed Julius++</button>
-            <hr>
-            <button id="hurt" type="button" class="btn btn-danger">Slap </button>
-            <hr>
-            <button id="walk" type="button" class="btn btn-danger">Walk </button>
-            <hr>
-          </div>
+            <button id="feed" type="button" class="btn btn-success">Feed</button>
+        </div>
 
-
-          <div class="col-6">
-            <div class="btn btn danger">
-              <center>
-                <h2>Food Meter</h2>
-              </center>
+          <div class="col-md-6">
+            <h2>Fun Meter</h2>
+              <div class="progress">
+            <div id="fun-progress">
+              <div class="progress-bar"  role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0"
+              aria-valuemax="50"></div>
+            </div>
             </div>
             <hr>
+            <h2>Sleep Meter</h2>
             <div class="progress">
+            <div id="sleep-progress">
               <div class="progress-bar"  role="progressbar" style="width: 100%;" aria-valuenow="10" aria-valuemin="0"
-                aria-valuemax="50"></div>
+              aria-valuemax="50"></div>
             </div>
-           
+            </div>
+            <hr>
+            <h2>Food Meter</h2>
+            <div class="progress">
+            <div id="food-progress">
+              <div class="progress-bar"  role="progressbar" style="width: 100%;" aria-valuenow="10" aria-valuemin="0"
+              aria-valuemax="50"></div>
+            </div>
+            </div>
             <hr>
             <br>
-
           </div>
         </div>
+      </div>
     </div>
   </div>
 
   <!-- Death PAge -->
   <div id="death">
-    <h2>You have died!</h2>
+    <h2>Your Pet Died!</h2>
     <p>You Suck.<br>
-      <button class="btn btn-info"><a href="/">try again!</a></button>
+      <button class="btn btn-info"><a href="/">Try again!</a></button>
     </p>
+    <p id="score"></p>
     <br><br>
     <img id="trollface" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQa-aSRGzuvqS10b0RhnoVExullkiUHcroSLzbBhOhdqR9ciaY">
 
   </div>
-  </div>
+</div>
 </body>
 
 </html>

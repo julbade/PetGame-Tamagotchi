@@ -1,17 +1,41 @@
 export let pet = {
-  foodLevel: 50,
+  funLevel: 100,
+  sleepLevel: 100,
+  foodLevel: 100,
 
-  setHunger: function() {
-    const hungerInterval = setInterval(() => {
-      this.foodLevel--;
+  setFun: function() {
+    const funInterval = setInterval(() => {
+      this.funLevel--;
       if (this.didYouGetEaten() == true) {
-        clearInterval(hungerInterval);
+        clearInterval(funInterval);
         return "You got eaten!";
       }
-    }, 30);
+    }, 70);
+  },
+  setSleep: function() {
+    const sleepInterval = setInterval(() => {
+      this.sleepLevel--;
+      if (this.didYouGetEaten() == true) {
+        clearInterval(sleepInterval);
+        return "You got eaten!";
+      }
+    }, 80);
+  },
+  setHunger: function() {
+    const foodInterval = setInterval(() => {
+      this.foodLevel--;
+      if (this.didYouGetEaten() == true) {
+        clearInterval(foodInterval);
+        return "You got eaten!";
+      }
+    }, 90);
   },
   dyingPet: function() {
-    if (this.foodLevel > 0) {
+    if (this.funLevel > 0) {
+      return false;
+    } else if(this.sleepLevel > 0) {
+      return false;
+    } else if (this.foodLevel > 0) {
       return false;
     } else {
       return true;
@@ -19,15 +43,27 @@ export let pet = {
   },
   interact: function(amount) {
     let that = this;
-    return function(food) {
+    return function(play) {
+      that.funLevel += amount;
+      return `The pet ate the ${play}! Food level goes up ${amount}!`;
+    }
+  },
+  sleep: function(amount) {
+    let that = this;
+    return function(sleep) {
+      that.sleepLevel += amount;
+      return `The pet ate the ${sleep}! Food level goes up ${amount}!`;
+    }
+  },
+  feed: function(amount) {
+    let that = this;
+    return function(feed) {
       that.foodLevel += amount;
-      return `The pet ate the ${food}! Food level goes up ${amount}!`;
+      return `The pet ate the ${feed}! Food level goes up ${amount}!`;
     }
   }
 };
 
-pet.play = pet.interact(5);
-pet.sleep = pet.interact(7)
-pet.feed = pet.interact(10);
-pet.hurt = pet.interact(-100);
-pet.walk =  pet.interact(Math.floor((Math.random() * 10) + 5));
+pet.interact = pet.interact(7);
+pet.sleep = pet.sleep(7);
+pet.feed = pet.feed(7);

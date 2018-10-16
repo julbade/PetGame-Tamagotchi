@@ -4,46 +4,67 @@ import './styles.css';
 import $ from 'jquery';
 import { pet } from './../src/hungrypet.js';
 
-let foodLevelBar = pet.setHunger() ;
+let funLevelBar = pet.setFun() ;
+let sleepLevelBar = pet.setSleep();
+let foodLevelBar = pet.setHunger();
+
 $(function(){
-foodLevelBar = parseFloat($("#progress-bar").css("width")) + 1;
+  funLevelBar = parseFloat($(".progress-bar").css("width")) + 1;
+  sleepLevelBar = parseFloat($(".progress-bar").css("width")) + 1;
+  foodLevelBar = parseFloat($(".progress-bar").css("width")) + 1;
+  setInterval(function() {
+    $("#fun-progress").text(pet.funLevel);
+    $("#fun-progress").css("width", pet.funLevel);
+    if (pet.funLevel <= 0)
+    {
+      $("#death").show();
+      $("#game").hide();
+    }
+  },1000);
 
-setInterval(function() {
-$(".progress-bar").text(pet.foodLevel);
- $(".progress-bar").css("width", pet.foodLevel);
-  if (pet.foodLevel <= 0)
-  {
-    $("#death").show();
-    $("#game").hide();
-  }
-},100);
-})
+  setInterval(function() {
+    $("#sleep-progress").text(pet.sleepLevel);
+    $("#sleep-progress").css("width", pet.sleepLevel);
+    if (pet.sleepLevel <= 0)
+    {
+      $("#death").show();
+      $("#game").hide();
+    }
+  },500);
 
-  $(document).ready(function() {
+  setInterval(function() {
+    $("#food-progress").text(pet.foodLevel);
+    $("#food-progress").css("width", pet.foodLevel);
+    if (pet.foodLevel <= 0)
+    {
+      $("#death").show();
+      $("#game").hide();
+    }
+  },750);
+});
+
+$(document).ready(function() {
+  var count = 0
   $('#play').click(function(){
-    pet.play("play");
-    $(".progress-bar").text(pet.foodLevel);
-
-  })
+    count++;
+    pet.interact("play");
+    $("#fun-progress").text(pet.funLevel);
+    $("#score").html("Your score is: "+ count);
+  });
 
   $('#sleep').click(function() {
+    count++;
     pet.sleep("sleep");
-    $(".progress-bar").text(pet.foodLevel);
-  })
+    $("#sleep-progress").text(pet.sleepLevel);
+    $("#score").html("Your score is: "+ count);
+
+  });
 
   $('#feed').click(function(){
+    count++;
     pet.feed("feed");
-    $(".progress-bar").text(pet.foodLevel);
-  })
+    $("#food-progress").text(pet.foodLevel);
+    $("#score").html("Your score is: "+ count);
 
-  $('#hurt').click(function(){
-    pet.hurt("hurt");
-    $(".progress-bar").text(pet.foodLevel);
-  })
-
-  $('#walk').click(function(){
-    pet.walk("walk");
-    $(".progress-bar").text(pet.foodLevel);
-  })
-    console.log(pet.foodLevel);
+  });
 });
