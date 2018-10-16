@@ -30,7 +30,7 @@ $(function(){
       $("#death").show();
       $("#game").hide();
     }
-  },500);
+  },850);
 
   setInterval(function() {
     $("#food-progress").text(pet.foodLevel);

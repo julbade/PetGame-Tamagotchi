@@ -10,7 +10,7 @@ export let pet = {
         clearInterval(funInterval);
         return "You got eaten!";
       }
-    }, 70);
+    }, 65);
   },
   setSleep: function() {
     const sleepInterval = setInterval(() => {
@@ -19,7 +19,7 @@ export let pet = {
         clearInterval(sleepInterval);
         return "You got eaten!";
       }
-    }, 80);
+    }, 65);
   },
   setHunger: function() {
     const foodInterval = setInterval(() => {
@@ -28,7 +28,7 @@ export let pet = {
         clearInterval(foodInterval);
         return "You got eaten!";
       }
-    }, 90);
+    }, 65);
   },
   dyingPet: function() {
     if (this.funLevel > 0) {

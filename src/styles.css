@@ -18,6 +18,9 @@ body{
   #trollface {
     height: 300px;
     width: 500px;
-
   }
- 
+
+  #pet {
+    height: 150px;
+    width: 200px;
+  }
