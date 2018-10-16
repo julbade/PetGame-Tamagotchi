@@ -1,4 +1,4 @@
-import { HungryPet } from './src/hungrypet.js';
+import { pet } from './../src/hungrypet.js';
 
 describe ('HungryBear', function(){
   let fuzzy = new HungryBear("Fuzzy");
